@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html lang="en">
+    <html data-theme="night" lang="en">
       <body>
 
          {
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
             <>
             <Provider store={store}>
             <Toaster expand={true} richColors />
-           <div>{children}</div>
+            <div>{children}</div>
            </Provider> 
            </>
           )
