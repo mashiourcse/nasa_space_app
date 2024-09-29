@@ -1,8 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit'
-import ModalSlice from '../Modal/ModalSlice';
-import loadingSlice from '../loading/loadingSlice';
-import baseApi from '../Api/baseApi';
-
+import { configureStore } from "@reduxjs/toolkit";
+import ModalSlice from "../Modal/ModalSlice";
+import loadingSlice from "../loading/loadingSlice";
+import baseApi from "../Api/baseApi";
 
 const store = configureStore({
   reducer: {
@@ -12,7 +11,7 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(baseApi.middleware),
-})
+});
 
 export default store;
 export const useAppDispatch = () => store.dispatch;

@@ -1,4 +1,4 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const productApi = baseApi.injectEndpoints({
@@ -13,7 +13,7 @@ const productApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Product')
+      invalidatesTags: getTagsByModuleName("Product"),
     }),
 
     // Get Products
@@ -21,7 +21,7 @@ const productApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/products",
       }),
-      providesTags: getTagsByModuleName('Product')
+      providesTags: getTagsByModuleName("Product"),
     }),
 
     // Update Product
@@ -34,7 +34,7 @@ const productApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Product')
+      invalidatesTags: getTagsByModuleName("Product"),
     }),
 
     // Delete Product
@@ -43,7 +43,7 @@ const productApi = baseApi.injectEndpoints({
         url: `/products/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('Product')
+      invalidatesTags: getTagsByModuleName("Product"),
     }),
   }),
 });

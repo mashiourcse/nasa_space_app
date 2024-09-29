@@ -1,4 +1,4 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const productTypeApi = baseApi.injectEndpoints({
@@ -13,7 +13,7 @@ const productTypeApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('ProductType')
+      invalidatesTags: getTagsByModuleName("ProductType"),
     }),
 
     // Get Product Types
@@ -21,7 +21,7 @@ const productTypeApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/product-types",
       }),
-      providesTags: getTagsByModuleName('ProductType')
+      providesTags: getTagsByModuleName("ProductType"),
     }),
 
     // Get Single Product Type by ID
@@ -29,7 +29,7 @@ const productTypeApi = baseApi.injectEndpoints({
       query: (id) => ({
         url: `/product-types/${id}`,
       }),
-      providesTags: getTagsByModuleName('ProductType')
+      providesTags: getTagsByModuleName("ProductType"),
     }),
 
     // Update Product Type
@@ -42,8 +42,7 @@ const productTypeApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('ProductType')
-
+      invalidatesTags: getTagsByModuleName("ProductType"),
     }),
 
     // Delete Product Type
@@ -52,8 +51,7 @@ const productTypeApi = baseApi.injectEndpoints({
         url: `/product-types/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('ProductType')
-
+      invalidatesTags: getTagsByModuleName("ProductType"),
     }),
   }),
 });
@@ -61,7 +59,7 @@ const productTypeApi = baseApi.injectEndpoints({
 export const {
   useAddProductTypeMutation,
   useGetProductTypesQuery,
-  useGetProductTypeByIdQuery, 
+  useGetProductTypeByIdQuery,
   useUpdateProductTypeMutation,
   useDeleteProductTypeMutation,
 } = productTypeApi;

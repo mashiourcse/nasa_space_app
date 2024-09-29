@@ -1,21 +1,19 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
-
 
 const branchesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
     // Add Branch
     addBranch: builder.mutation({
       query: (data) => ({
         url: "/branches/create",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Branch')
+      invalidatesTags: getTagsByModuleName("Branch"),
     }),
 
     // Get Branches
@@ -23,7 +21,7 @@ const branchesApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/branches",
       }),
-      providesTags: getTagsByModuleName('Branch')
+      providesTags: getTagsByModuleName("Branch"),
     }),
 
     // Get Branch by ID
@@ -39,12 +37,12 @@ const branchesApi = baseApi.injectEndpoints({
       query: ({ id, data }) => ({
         url: `/branches/update/${id}`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Branch')
+      invalidatesTags: getTagsByModuleName("Branch"),
     }),
 
     // Delete Branch
@@ -53,15 +51,14 @@ const branchesApi = baseApi.injectEndpoints({
         url: `/branches/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('Branch')
+      invalidatesTags: getTagsByModuleName("Branch"),
     }),
-
   }),
 });
 
-export const { 
+export const {
   useAddBranchMutation,
-  useGetBranchesQuery, 
+  useGetBranchesQuery,
   // useGetBranchByIdQuery,
   useUpdateBranchMutation,
   useDeleteBranchMutation,

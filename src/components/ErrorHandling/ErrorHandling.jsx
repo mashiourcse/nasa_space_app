@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 
 const ErrorHandling = ({ errors, isAddModalOpen, isEditModalOpen }) => {
@@ -22,7 +22,7 @@ const ErrorHandling = ({ errors, isAddModalOpen, isEditModalOpen }) => {
     }
   }, [errors]);
 
-  return error
+  return error;
 };
 
 export default ErrorHandling;

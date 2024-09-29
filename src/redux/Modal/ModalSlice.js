@@ -5,7 +5,7 @@ const initialState = {
   isAddModalOpen: false,
   isDeleteModalOpen: false,
   isViewModalOpen: false,
-//   isHomeCategorySidebarOpen: false,
+  //   isHomeCategorySidebarOpen: false,
 };
 
 const ModalSlice = createSlice({
@@ -35,7 +35,7 @@ export const {
   setIsDeleteModalOpen,
   setIsEditModalOpen,
   setIsViewModalOpen,
-//   setIsHomeCategorySidebarOpen,
+  //   setIsHomeCategorySidebarOpen,
 } = ModalSlice.actions;
 
 export default ModalSlice.reducer;

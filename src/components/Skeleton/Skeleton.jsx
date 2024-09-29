@@ -3,22 +3,22 @@ const Skeleton = () => {
     <>
       <div
         role="status"
-        className="w-full p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700"
+        className="w-full animate-pulse space-y-4 divide-y divide-gray-200 rounded border border-gray-200 p-4 shadow dark:divide-gray-700 dark:border-gray-700 md:p-6"
       >
         <table className="w-full">
           <thead>
             <tr>
-              <th className="h-7 bg-gray-300 rounded dark:bg-gray-600 w-full mb-3"></th>
+              <th className="mb-3 h-7 w-full rounded bg-gray-300 dark:bg-gray-600"></th>
             </tr>
           </thead>
           <tbody>
             {Array.from({ length: 10 }).map((_, index) => (
               <tr key={index} className="pt-4">
-                <td className="flex justify-between mt-5 items-center  gap-5 ">
-                  <div className="h-4 w-10 lg:w-24 md:w-12   bg-gray-300 rounded dark:bg-gray-600 mb-2.5"></div>
-                  <div className="w-10 lg:w-32 md:w-12 h-4 bg-gray-200 rounded dark:bg-gray-700"></div>
-                  <div className="w-10 lg:w-32 md:w-12  h-4 bg-gray-200 rounded dark:bg-gray-700"></div>
-                  <div className="h-4 w-10 lg:w-24 md:w-12  bg-gray-300 rounded dark:bg-gray-600  mb-2.5"></div>
+                <td className="mt-5 flex items-center justify-between gap-5">
+                  <div className="mb-2.5 h-4 w-10 rounded bg-gray-300 dark:bg-gray-600 md:w-12 lg:w-24"></div>
+                  <div className="h-4 w-10 rounded bg-gray-200 dark:bg-gray-700 md:w-12 lg:w-32"></div>
+                  <div className="h-4 w-10 rounded bg-gray-200 dark:bg-gray-700 md:w-12 lg:w-32"></div>
+                  <div className="mb-2.5 h-4 w-10 rounded bg-gray-300 dark:bg-gray-600 md:w-12 lg:w-24"></div>
                 </td>
               </tr>
             ))}

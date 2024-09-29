@@ -1,9 +1,8 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const addressApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
     // Add Address
     addAddress: builder.mutation({
       query: (data) => ({
@@ -14,7 +13,7 @@ const addressApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Address'),
+      invalidatesTags: getTagsByModuleName("Address"),
     }),
 
     // Get Addresses
@@ -22,7 +21,7 @@ const addressApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/addresses",
       }),
-      providesTags: getTagsByModuleName('Address'),
+      providesTags: getTagsByModuleName("Address"),
     }),
 
     // Update Address
@@ -35,7 +34,7 @@ const addressApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Address'),
+      invalidatesTags: getTagsByModuleName("Address"),
     }),
 
     // Delete Address
@@ -44,7 +43,7 @@ const addressApi = baseApi.injectEndpoints({
         url: `/addresses/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('Address'),
+      invalidatesTags: getTagsByModuleName("Address"),
     }),
   }),
 });

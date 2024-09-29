@@ -1,20 +1,19 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const usersApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
     // Add User
     addUser: builder.mutation({
       query: (data) => ({
         url: "/users/create",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('User')
+      invalidatesTags: getTagsByModuleName("User"),
     }),
 
     // Get Users
@@ -22,7 +21,7 @@ const usersApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/users",
       }),
-      providesTags: getTagsByModuleName('User')
+      providesTags: getTagsByModuleName("User"),
     }),
 
     // Get User by ID
@@ -30,7 +29,7 @@ const usersApi = baseApi.injectEndpoints({
       query: (id) => ({
         url: `/users/user/${id}`,
       }),
-      providesTags: getTagsByModuleName('User'),
+      providesTags: getTagsByModuleName("User"),
     }),
 
     // Update User
@@ -38,12 +37,12 @@ const usersApi = baseApi.injectEndpoints({
       query: ({ id, data }) => ({
         url: `/users/update/${id}`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('User')
+      invalidatesTags: getTagsByModuleName("User"),
     }),
 
     // Delete User
@@ -52,15 +51,14 @@ const usersApi = baseApi.injectEndpoints({
         url: `/users/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('User')
+      invalidatesTags: getTagsByModuleName("User"),
     }),
-
   }),
 });
 
-export const { 
+export const {
   useAddUserMutation,
-  useGetUsersQuery, 
+  useGetUsersQuery,
   useGetUserByIdQuery,
   useUpdateUserMutation,
   useDeleteUserMutation,

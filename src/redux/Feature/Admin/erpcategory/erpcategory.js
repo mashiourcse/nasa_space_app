@@ -1,6 +1,5 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
-
 
 const erpcategory = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -14,8 +13,8 @@ const erpcategory = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags:getTagsByModuleName('ErpCategory')
-      // tags.filter(tag => tag.name === 'Category').map(tag => tag.tag), 
+      invalidatesTags: getTagsByModuleName("ErpCategory"),
+      // tags.filter(tag => tag.name === 'Category').map(tag => tag.tag),
     }),
 
     // Get Categories
@@ -23,8 +22,8 @@ const erpcategory = baseApi.injectEndpoints({
       query: () => ({
         url: "/erp-categories",
       }),
-      providesTags:getTagsByModuleName('ErpCategory')
-      // tags.filter(tag => tag.name === 'Category').map(tag => tag.tag), // 
+      providesTags: getTagsByModuleName("ErpCategory"),
+      // tags.filter(tag => tag.name === 'Category').map(tag => tag.tag), //
     }),
 
     // Update Category
@@ -37,8 +36,8 @@ const erpcategory = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags:getTagsByModuleName('ErpCategory')
-      //  tags.filter(tag => tag.name === 'Category').map(tag => tag.tag) 
+      invalidatesTags: getTagsByModuleName("ErpCategory"),
+      //  tags.filter(tag => tag.name === 'Category').map(tag => tag.tag)
     }),
 
     // Delete Category mutation in RTK Query
@@ -47,8 +46,8 @@ const erpcategory = baseApi.injectEndpoints({
         url: `/erp-categories/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('ErpCategory')
-      // tags.filter(tag => tag.name === 'Category').map(tag => tag.tag) 
+      invalidatesTags: getTagsByModuleName("ErpCategory"),
+      // tags.filter(tag => tag.name === 'Category').map(tag => tag.tag)
     }),
   }),
 });

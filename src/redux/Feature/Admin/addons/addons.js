@@ -1,6 +1,5 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
-
 
 const addonsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

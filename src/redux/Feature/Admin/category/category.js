@@ -1,7 +1,5 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
-
-
 
 const categoryApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -15,7 +13,7 @@ const categoryApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags:getTagsByModuleName('Category')
+      invalidatesTags: getTagsByModuleName("Category"),
     }),
 
     // Get Categories
@@ -23,8 +21,7 @@ const categoryApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/sys-categories",
       }),
-      providesTags:getTagsByModuleName('Category')
-  
+      providesTags: getTagsByModuleName("Category"),
     }),
 
     // Update Category
@@ -37,8 +34,7 @@ const categoryApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags:getTagsByModuleName('Category')
-     
+      invalidatesTags: getTagsByModuleName("Category"),
     }),
 
     // Delete Category mutation in RTK Query
@@ -47,8 +43,7 @@ const categoryApi = baseApi.injectEndpoints({
         url: `/sys-categories/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('Category')
-      
+      invalidatesTags: getTagsByModuleName("Category"),
     }),
   }),
 });

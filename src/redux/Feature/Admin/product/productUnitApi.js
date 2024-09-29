@@ -1,4 +1,4 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const productUnitApi = baseApi.injectEndpoints({
@@ -13,7 +13,7 @@ const productUnitApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('ProductUnit')
+      invalidatesTags: getTagsByModuleName("ProductUnit"),
     }),
 
     // Get Product Units
@@ -21,7 +21,7 @@ const productUnitApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/product-unites",
       }),
-      providesTags: getTagsByModuleName('ProductUnit')
+      providesTags: getTagsByModuleName("ProductUnit"),
     }),
 
     // Get Single Product Unit by ID
@@ -29,8 +29,7 @@ const productUnitApi = baseApi.injectEndpoints({
       query: (id) => ({
         url: `/product-unites/${id}`,
       }),
-      providesTags: getTagsByModuleName('ProductUnit')
-
+      providesTags: getTagsByModuleName("ProductUnit"),
     }),
 
     // Update Product Unit
@@ -43,8 +42,7 @@ const productUnitApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('ProductUnit')
-
+      invalidatesTags: getTagsByModuleName("ProductUnit"),
     }),
 
     // Delete Product Unit
@@ -53,8 +51,7 @@ const productUnitApi = baseApi.injectEndpoints({
         url: `/product-unites/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('ProductUnit')
-
+      invalidatesTags: getTagsByModuleName("ProductUnit"),
     }),
   }),
 });
@@ -62,7 +59,7 @@ const productUnitApi = baseApi.injectEndpoints({
 export const {
   useAddProductUnitMutation,
   useGetProductUnitsQuery,
-  useGetProductUnitByIdQuery, 
+  useGetProductUnitByIdQuery,
   useUpdateProductUnitMutation,
   useDeleteProductUnitMutation,
 } = productUnitApi;

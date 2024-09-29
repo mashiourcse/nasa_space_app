@@ -1,10 +1,8 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
-
 
 const businessesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
     addBusinesses: builder.mutation({
       query: (data) => ({
         url: "/erp-businesses/create",
@@ -14,8 +12,8 @@ const businessesApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags:getTagsByModuleName('ErpBusinesses')
-      // tags.filter(tag => tag.name === 'ErpBusinesses').map(tag => tag.tag), 
+      invalidatesTags: getTagsByModuleName("ErpBusinesses"),
+      // tags.filter(tag => tag.name === 'ErpBusinesses').map(tag => tag.tag),
     }),
 
     // Get Categories
@@ -23,8 +21,7 @@ const businessesApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/erp-businesses",
       }),
-      providesTags:getTagsByModuleName('ErpBusinesses')
-
+      providesTags: getTagsByModuleName("ErpBusinesses"),
     }),
 
     // Update ErpBusinesses
@@ -37,8 +34,7 @@ const businessesApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags:getTagsByModuleName('ErpBusinesses')
-
+      invalidatesTags: getTagsByModuleName("ErpBusinesses"),
     }),
 
     // Delete ErpBusinesses mutation in RTK Query
@@ -47,8 +43,7 @@ const businessesApi = baseApi.injectEndpoints({
         url: `/erp-businesses/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('ErpBusinesses')
-
+      invalidatesTags: getTagsByModuleName("ErpBusinesses"),
     }),
   }),
 });

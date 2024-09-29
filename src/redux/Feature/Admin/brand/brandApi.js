@@ -1,4 +1,4 @@
-import baseApi from '../../../Api/baseApi';
+import baseApi from "../../../Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const brandApi = baseApi.injectEndpoints({
@@ -13,7 +13,7 @@ const brandApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Brand')
+      invalidatesTags: getTagsByModuleName("Brand"),
     }),
 
     // Get Brands
@@ -21,7 +21,7 @@ const brandApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/brands",
       }),
-      providesTags: getTagsByModuleName('Brand')
+      providesTags: getTagsByModuleName("Brand"),
     }),
 
     // Update Brand
@@ -34,7 +34,7 @@ const brandApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Brand')
+      invalidatesTags: getTagsByModuleName("Brand"),
     }),
 
     // Delete Brand mutation in RTK Query
@@ -43,7 +43,7 @@ const brandApi = baseApi.injectEndpoints({
         url: `/brands/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('Brand')
+      invalidatesTags: getTagsByModuleName("Brand"),
     }),
   }),
 });

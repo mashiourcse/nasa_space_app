@@ -1,21 +1,19 @@
-
 import baseApi from "@/redux/Api/baseApi";
 import { getTagsByModuleName } from "@/redux/Tag/Tag";
 
 const customersApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
     // Add Customer
     addCustomer: builder.mutation({
       query: (data) => ({
         url: "/customers/create",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         method: "POST",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Customer')
+      invalidatesTags: getTagsByModuleName("Customer"),
     }),
 
     // Get Customers
@@ -23,7 +21,7 @@ const customersApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/customers",
       }),
-      providesTags: getTagsByModuleName('Customer')
+      providesTags: getTagsByModuleName("Customer"),
     }),
 
     // Update Customer
@@ -31,12 +29,12 @@ const customersApi = baseApi.injectEndpoints({
       query: ({ id, data }) => ({
         url: `/customers/update/${id}`,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         method: "PATCH",
         body: data,
       }),
-      invalidatesTags: getTagsByModuleName('Customer')
+      invalidatesTags: getTagsByModuleName("Customer"),
     }),
 
     // Delete Customer
@@ -45,13 +43,12 @@ const customersApi = baseApi.injectEndpoints({
         url: `/customers/delete/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: getTagsByModuleName('Customer')
+      invalidatesTags: getTagsByModuleName("Customer"),
     }),
-
   }),
 });
 
-export const { 
+export const {
   useAddCustomerMutation,
   useGetCustomersQuery,
   useUpdateCustomerMutation,

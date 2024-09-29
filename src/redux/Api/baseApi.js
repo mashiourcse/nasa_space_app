@@ -6,7 +6,7 @@ const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL,
   }),
-  tagTypes: tags.map(tag => tag.tag),
+  tagTypes: tags.map((tag) => tag.tag),
   endpoints: () => ({}),
 });
 
