@@ -17,17 +17,19 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html data-theme="night" lang="en">
-      <body>
+    <html data-theme="dim" lang="en">
+      <body
+        className={`flex min-h-screen w-screen flex-auto flex-col justify-between`}
+      >
         {isLoading ? (
           <div>loading</div>
         ) : (
-          <>
+          <div className="">
             <Provider store={store}>
               <Toaster expand={true} richColors />
               <div>{children}</div>
             </Provider>
-          </>
+          </div>
         )}
       </body>
     </html>

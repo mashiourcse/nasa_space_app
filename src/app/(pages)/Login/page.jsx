@@ -1,5 +1,9 @@
 "use client";
 import { useLoginMutation } from "@/redux/Feature/auth/authApi";
+import PlaceHolder from "@/public/placeholder.jpeg";
+import Space from "@/public/space.jpeg";
+import Image from "next/image";
+
 // import { useRouter } from "next/router";
 
 const Login = () => {
@@ -33,9 +37,13 @@ const Login = () => {
   // };
 
   return (
-    <div data-theme="dark">
-      Login
-      <label className="input input-bordered flex items-center gap-2">
+    <div
+      className="flex flex-col items-center gap-10 border-4 border-red-500 py-5"
+      style={{ backgroundImage: `url(${Space.src})`, backgroundSize: "cover" }}
+    >
+      <Image className="h-6/12 w-4/12" src={PlaceHolder} />
+
+      <label className="input input-bordered flex w-7/12 items-center gap-2">
         <input type="text" className="grow" placeholder="Search" />
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <>    
-        <Login />
-        <Link href="/chatbot">Go to the chatbot page from here</Link>
+    <>
+      <Login />
+      <Link href="/chatbot">Go to the chatbot page from here</Link>
     </>
   );
 }
