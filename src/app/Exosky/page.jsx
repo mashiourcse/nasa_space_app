@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useGetPlanetsQuery } from "@/redux/Feature/NASA/planet";
 
@@ -9,13 +9,24 @@ export default function Home() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading data</p>;
 
+  var changePlName = (name)=>{
+    let newName = "";
+    for( var i=0; i<name.length; i++){
+        if(name[i]==" "){
+          newName += "_";
+        }else{
+          newName += name[i];
+        }
+    }
+    return newName;
+  }
   return (
     <>
       <div>
         <h1>Planets Data</h1>
         {data && (
           <div>
-            <h2>Planet Name: {data[0]?.pl_name}</h2>
+            <h2>Planet Name: {changePlName(data[0]?.pl_name)}</h2>
             <p>Object ID: {data[0]?.objectid}</p>
             <p>Discovery Method: {data[0]?.discoverymethod}</p>
             <p>Discovery Year: {data[0]?.disc_year}</p>
@@ -37,6 +48,23 @@ export default function Home() {
             </p>
           </div>
         )}
+
+        {/* Embedded NASA Eyes iframe */}
+        <div className=" ml-10 mb-10">
+        <iframe
+
+         // src="https://eyes.nasa.gov/apps/exo/#/planet/OGLE-TR-10_b"
+         src={`https://eyes.nasa.gov/apps/exo/#/planet/${changePlName(data[0]?.pl_name)}`}
+          title="NASA Eyes - OGLE-TR-10 b"
+          width="80%"
+          height="800"c v 
+          allow="fullscreen"
+          style={{ border: 0 }}
+          className="justify-center"
+        >
+          Unable to render the provided source
+        </iframe>
+        </div>
       </div>
     </>
   );
