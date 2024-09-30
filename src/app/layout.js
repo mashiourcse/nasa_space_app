@@ -4,6 +4,7 @@ import store from "@/redux/store/store";
 import "./globals.css";
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({ children }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,11 +27,14 @@ export default function RootLayout({ children }) {
         ) : (
           <div className="">
             <Provider store={store}>
-              <Toaster expand={true} richColors />
-              <div>{children}</div>
-            </Provider>
+            <Toaster expand={true} richColors />
+            <Navbar/>
+           <div>{children}</div>
+           </Provider> 
           </div>
-        )}
+          )
+         }
+
       </body>
     </html>
   );

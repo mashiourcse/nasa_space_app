@@ -1,12 +1,16 @@
-"use client";
-import Login from "./(pages)/Login/page";
-import Link from "next/link";
+"use client"
+
+import { useGetPlanetsQuery } from "@/redux/Feature/NASA/planet";
 
 export default function Home() {
+ 
+
   return (
     <>
-      <Login />
-      <Link href="/chatbot">Go to the chatbot page from here</Link>
+      <div>
+        <h1>HOME PAGE</h1>
+        
+      </div>
     </>
   );
 }
