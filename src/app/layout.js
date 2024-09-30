@@ -4,6 +4,7 @@ import store from "@/redux/store/store";
 import "./globals.css";
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
+import Navbar from "@/components/Navbar";
 
 
 export default function RootLayout({ children }) {
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
             <>
             <Provider store={store}>
             <Toaster expand={true} richColors />
+            <Navbar/>
            <div>{children}</div>
            </Provider> 
            </>

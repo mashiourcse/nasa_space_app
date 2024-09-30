@@ -4,11 +4,11 @@ import { tags } from "../Tag/Tag";
 const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://exoplanetarchive.ipac.caltech.edu/TAP/",  
+    baseUrl: "https://cors-anywhere.herokuapp.com/https://exoplanetarchive.ipac.caltech.edu/TAP/",  
    // baseUrl: process.env.NASA_TAP_URL,
     prepareHeaders: (headers) => {
      //https://cors-anywhere.herokuapp.com/
-     headers.set('Access-Control-Allow-Headers', '*'); 
+   //  headers.set('Access-Control-Allow-Origin', '*'); 
       return headers;
     },
   }),
