@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html data-theme="dim" lang="en">
+    <html data-theme="valentine" lang="en">
       <body
         className={`flex min-h-screen w-screen flex-auto flex-col justify-between`}
       >

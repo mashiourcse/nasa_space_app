@@ -8,7 +8,7 @@ import { BufferMemory } from "langchain/memory";
 
 const model = new ChatOpenAI({
   model: "gpt-4o-mini",
-  openAIApiKey: process.env.OpenAI,
+  openAIApiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
 const prompt = ChatPromptTemplate.fromMessages([
   [

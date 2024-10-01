@@ -16,6 +16,7 @@ export default function AllPlanets() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading data</p>;
 
+
   const changePlName = (name) => {
     let newName = "";
     for (var i = 0; i < name.length; i++) {
@@ -28,6 +29,7 @@ export default function AllPlanets() {
     return newName;
   };
 
+ 
   const columns = [
     {
       title: "Serial No.",
@@ -39,6 +41,24 @@ export default function AllPlanets() {
       dataIndex: "pl_name",
       key: "pl_name",
       render: (name) => changePlName(name),
+    },
+    {
+      title: "Orbital Period (days)",
+      dataIndex: "pl_orbper",
+      key: "pl_orbper",
+      render: (name) => name || "N/A",
+    },
+    {
+      title: "Distance From Earth (Light Years)",
+      dataIndex: "sy_dist",
+      key: "sy_dist",
+      render: (name) => Math.round(name*3.26156) || "N/A",
+    },
+    {
+      title: "Gravity (g)",
+      dataIndex: "st_logg",
+      key: "st_logg",
+      render: (name) => name || "N/A",
     },
     {
       title: "Action",
@@ -58,6 +78,9 @@ export default function AllPlanets() {
     key: index,
     pl_name: planet.pl_name,
     objectid: planet.objectid,
+    pl_orbper: planet.pl_orbper,
+    sy_dist: planet.sy_dist,
+    st_logg: planet.st_logg
   }));
 
   const handlePageChange = (page, newPageSize) => {
@@ -78,6 +101,7 @@ export default function AllPlanets() {
         onChange: handlePageChange,
         showSizeChanger: true, 
         pageSizeOptions: ['10', '20', '50', '100'], 
+        
       }}
       className="shadow-lg rounded-lg"
     />
