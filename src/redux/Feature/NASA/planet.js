@@ -16,7 +16,7 @@ const getPlanetsApi = baseApi.injectEndpoints({
 
     getAllPlanetsName: builder.query({
       query: (id) => ({
-        url: "sync?query=select+objectid,pl_name,pl_masse,pl_name,pl_orbper,sy_dist,st_logg+from+pscomppars&format=json",
+        url: "sync?query=select+objectid,pl_name,pl_masse,pl_name,pl_orbper,sy_dist,st_logg+from+pscomppars+order+by+sy_dist+asc&format=json",
        // url: `sync?query=select+*+from+pscomppars+where+objectid=${id}&format=json`,
       }),
      // providesTags: getTagsByModuleName('user')

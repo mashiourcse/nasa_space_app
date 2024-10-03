@@ -1,7 +1,7 @@
 "use client";
 
 import { useGetSinglePlanetDataQuery } from "@/redux/Feature/NASA/planet";
-import { Card } from "antd";
+import { Card, Spin } from "antd";
 import "antd/dist/reset.css";
 
 export default function PlanetDetails({ params }) {
@@ -20,8 +20,12 @@ export default function PlanetDetails({ params }) {
     return newName;
   };
 
-  if (isLoading) return <p className="text-center text-lg">Loading...</p>;
-  if (error) return <p className="text-center text-lg text-red-500">Error loading data</p>;
+  if (isLoading) return <div className="flex justify-center items-center h-screen">
+  <Spin size="large" />
+</div>;
+  if (error) return <div className="flex justify-center items-center h-screen">
+  <p className="text-center text-lg text-red-500">Error loading data</p>
+</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useGetAllPlanetsNameQuery } from "@/redux/Feature/NASA/planet";
-import { Table, Button } from "antd";
+import { Table, Button, Spin } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import 'antd/dist/reset.css'; 
@@ -13,8 +13,13 @@ export default function AllPlanets() {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10); 
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading data</p>;
+  if (isLoading) return <div className="flex justify-center items-center h-screen">
+    <Spin size="large" />
+</div>;
+
+  if (error) return <div className="flex justify-center items-center h-screen">
+  <p>Error loading data</p>
+</div>;
 
 
   const changePlName = (name) => {
@@ -46,19 +51,19 @@ export default function AllPlanets() {
       title: "Orbital Period (days)",
       dataIndex: "pl_orbper",
       key: "pl_orbper",
-      render: (name) => name || "N/A",
+      render: (name) => name || "Unknown",
     },
     {
       title: "Distance From Earth (Light Years)",
       dataIndex: "sy_dist",
       key: "sy_dist",
-      render: (name) => Math.round(name*3.26156) || "N/A",
+      render: (name) => Math.round(name*3.26156) || "Unknown",
     },
     {
       title: "Gravity (g)",
       dataIndex: "st_logg",
       key: "st_logg",
-      render: (name) => name || "N/A",
+      render: (name) => name || "Unknown",
     },
     {
       title: "Action",

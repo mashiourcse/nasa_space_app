@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         className={`flex min-h-screen w-screen flex-auto flex-col justify-between`}
       >
         {isLoading ? (
-          <div>loading</div>
+          <div></div>
         ) : (
           <div className="">
             <Provider store={store}>
