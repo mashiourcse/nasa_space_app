@@ -29,53 +29,93 @@ export default function PlanetDetails({ params }) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Planet Details</h1>
+      {/* <h1 className="text-3xl font-bold text-center mb-6">Planet Details</h1> */}
 
       {data && (
         <Card
-          title={`Planet Name: ${changePlName(data[0]?.pl_name)}`}
-          bordered={false}
-          className="shadow-lg mb-8"
-        >
-          <p className="mb-2">
+        title={<div className="text-center text-2xl font-bold">{data[0]?.pl_name}</div>} 
+        bordered={false}
+        className="shadow-lg mb-8"
+      >
+        {/* Grid Container */}
+        <div className="grid grid-cols-3 gap-4">
+          {/* <p className="mb-2">
             <strong>Object ID:</strong> {data[0]?.objectid}
-          </p>
-          <p className="mb-2">
-            <strong>Discovery Method:</strong> {data[0]?.discoverymethod}
-          </p>
-          <p className="mb-2">
-            <strong>Discovery Year:</strong> {data[0]?.disc_year}
-          </p>
-          <p className="mb-2">
-            <strong>Right Ascension (RA):</strong> {data[0]?.rastr}
-          </p>
-          <p className="mb-2">
-            <strong>Declination (Dec):</strong> {data[0]?.decstr}
-          </p>
-          <p className="mb-2">
-            <strong>Host Name:</strong> {data[0]?.hostname}
-          </p>
-          <p className="mb-2">
-            <strong>Telescope:</strong> {data[0]?.disc_telescope}
-          </p>
-          <p className="mb-2">
-            <strong>Discovery Locale:</strong> {data[0]?.disc_locale}
-          </p>
-          <p className="mb-2">
-            <strong>Discovery Facility:</strong> {data[0]?.disc_facility}
-          </p>
-          <p className="mb-2">
-            <strong>Discovery Reference:</strong>{" "}
-            <a
-              href="https://ui.adsabs.harvard.edu/abs/2005ApJ...624..372K/abstract"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Konacki et al. 2005
-            </a>
-          </p>
-        </Card>
+          </p> */}
+         <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Discovery Method</p>
+      <p className="text-center text-base">{data[0]?.discoverymethod || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Discovery Year</p>
+      <p className="text-center text-base">{data[0]?.disc_year || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Right Ascension (RA)</p>
+      <p className="text-center text-base">{data[0]?.rastr || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Declination (Dec)</p>
+      <p className="text-center text-base">{data[0]?.decstr || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Host Name</p>
+      <p className="text-center text-base">{data[0]?.hostname || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Telescope</p>
+      <p className="text-center text-base">{data[0]?.disc_telescope || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Discovery Locale</p>
+      <p className="text-center text-base">{data[0]?.disc_locale || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Discovery Facility</p>
+      <p className="text-center text-base">{data[0]?.disc_facility || 'Unknown'}</p>
+    </div>
+  </Card>
+
+  <Card bordered={true} className="col-span-3 mb-4 shadow-lg border border-gray-300">
+    <div className="flex flex-col justify-between h-full">
+      <p className="text-center mb-2 text-lg font-bold">Discovery Reference</p>
+      <p className="text-center text-base">
+        <a
+          href="https://ui.adsabs.harvard.edu/abs/2005ApJ...624..372K/abstract"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          Konacki et al. 2005
+        </a>
+      </p>
+    </div>
+  </Card>
+        </div>
+      </Card>
+      
       )}
 
       {/* Exosky iframe */}
@@ -83,8 +123,8 @@ export default function PlanetDetails({ params }) {
         <iframe
           src={`https://eyes.nasa.gov/apps/exo/#/planet/${changePlName(data[0]?.pl_name)}`}
           title="NASA Eyes"
-          width="80%"
-          height="800"
+          width="100%"
+          height="1000"
           allow="fullscreen"
           style={{ border: 0 }}
           className="shadow-lg"

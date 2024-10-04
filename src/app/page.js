@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetPlanetsQuery, useGetDiscYearCountQuery, useLazyGetDiscMethodCountQuery, useGetPlanetsCountQuery, useGetNearestPlanetQuery, useGetFarthestPlanetQuery} from "@/redux/Feature/NASA/planet";
+import { useGetDiscYearCountQuery, useLazyGetDiscMethodCountQuery, useGetPlanetsCountQuery, useGetNearestPlanetQuery, useGetFarthestPlanetQuery} from "@/redux/Feature/NASA/planet";
 import { Layout, Card, Row, Col } from "antd";
 import { useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
@@ -8,10 +8,10 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 const { Header, Content } = Layout;
 
 export default function Home() {
-  const { data: planetsData, isLoading } = useGetPlanetsQuery();
+ // const { data: planetsData, isLoading } = useGetPlanetsQuery();
   const { data} = useGetDiscYearCountQuery(undefined);
   const [getDiscMethodCountTrigger, { data: discoveryData, isError }] = useLazyGetDiscMethodCountQuery();
-  const {data: getPlanetsCount} = useGetPlanetsCountQuery(undefined);
+  const {data: getPlanetsCount,isLoading} = useGetPlanetsCountQuery(undefined);
   const {data: getNearestPlanet} = useGetNearestPlanetQuery(undefined);
   const {data: getFarthestPlanet} = useGetFarthestPlanetQuery(undefined);
 
@@ -21,10 +21,6 @@ useEffect(() => {
 
    // console.log(getNearestPlanet[0]);
   //console.log(getPlanetsCount[0]["count(*)"]);
-  
-  const totalPlanetsDiscovered = planetsData?.length || 0;
-  const closestNeighbor = "Proxima Centauri"; 
-  const furthestNeighbor = "Planet Nine";  
  
 console.log(data)
 

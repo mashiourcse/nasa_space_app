@@ -2,9 +2,12 @@
 import { useEffect, useState } from "react";
 import store from "@/redux/store/store";
 import "./globals.css";
+import { AnimatedBackground } from 'animated-backgrounds';
+
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
+import RightSideBar from "@/components/RightSideBar";
 
 export default function RootLayout({ children }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +21,9 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html data-theme="valentine" lang="en">
+    <html data-theme="lofi" lang="en">
+        <AnimatedBackground animationName="geometricShapes" />
+
       <body
         className={`flex min-h-screen w-screen flex-auto flex-col justify-between`}
       >
@@ -29,6 +34,7 @@ export default function RootLayout({ children }) {
             <Provider store={store}>
             <Toaster expand={true} richColors />
             <Navbar/>
+            <RightSideBar/>
            <div>{children}</div>
            </Provider> 
           </div>

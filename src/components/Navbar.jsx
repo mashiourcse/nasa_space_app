@@ -11,12 +11,16 @@ const Navbar = () => {
         <Menu.Item key="exoplanets">
           <Link href="/Allplanets">Exoplanets</Link>
         </Menu.Item>
-        <Menu.Item key="chatbot">
+        {/* <Menu.Item key="chatbot">
           <Link href="/chatbot">Chatbot</Link>
+        </Menu.Item> */}
+        <Menu.Item key="about">
+          <Link href="/About">About</Link>
         </Menu.Item>
         <Menu.Item key="about">
-          <Link href="/about">About</Link>
+        
         </Menu.Item>
+        
       </Menu>
     </nav>
   );
