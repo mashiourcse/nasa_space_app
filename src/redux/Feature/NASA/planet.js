@@ -77,6 +77,13 @@ const getPlanetsApi = baseApi.injectEndpoints({
      // providesTags: getTagsByModuleName('user')
     }),
 
+    getYears: builder.query({
+      query: () => ({
+       // url: "sync?query=select+objectid,pl_name+from+pscomppars&format=json",
+        url: `years`,
+      }),
+     // providesTags: getTagsByModuleName('user')
+    }),
   }),
 
   //select+objectid,pl_name,sy_dist+from+(select+objectid,pl_name,sy_dist+from+pscomppars+order+by+sy_dist+asc)+where+rownum=1&format=json
@@ -92,5 +99,6 @@ export const {
     useGetPlanetsCountQuery,
     useGetNearestPlanetQuery,
     useGetFarthestPlanetQuery,
-    useGetTestProxyQuery
+    useGetTestProxyQuery,
+    useGetYearsQuery
 } = getPlanetsApi;

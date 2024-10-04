@@ -1,5 +1,5 @@
 "use client";
-import { useGetAllPlanetsNameQuery, useGetDiscYearCountQuery } from "@/redux/Feature/NASA/planet";
+import { useGetAllPlanetsNameQuery, useGetDiscYearCountQuery, useGetYearsQuery } from "@/redux/Feature/NASA/planet";
 import { Table, Button, Spin, Input, Select } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -15,8 +15,10 @@ export default function AllPlanets() {
   const [pageSize, setPageSize] = useState(10);
   const [searchTerm, setSearchTerm] = useState(""); 
   const [planetTypeFilter, setPlanetTypeFilter] = useState(""); 
-  const { data: years} = useGetDiscYearCountQuery(undefined);
-  console.log(data);
+  const [selectedYear, setSelectedYear] = useState("");
+  const { data: years} = useGetYearsQuery(undefined);
+  
+  console.log(years);
  // Planet type
  const getPlanetType = (pl_rade, pl_bmasse) => {
   if (pl_rade > 4 && pl_bmasse > 50) return "Gas Giant";
@@ -94,6 +96,11 @@ export default function AllPlanets() {
   // Filter
   const filteredData = data
     ?.filter((planet) => changePlName(planet.pl_name).toLowerCase().includes(searchTerm))
+    ?.filter((year)=> {
+      if(selectedYear=="")
+        return true;
+      return year.disc_year==selectedYear;
+    })
     ?.filter((planet) => {
       const planetType = getPlanetType(planet.pl_rade, planet.pl_bmasse);
       return planetTypeFilter ? planetType === planetTypeFilter : true;
@@ -124,6 +131,12 @@ export default function AllPlanets() {
   const handlePlanetTypeFilter = (value) => {
     setPlanetTypeFilter(value);
   };
+
+  const handleYearFilter = (value) => {
+    setSelectedYear(value);
+  }
+
+  console.log(selectedYear);
 
   if (isLoading) return <div className="flex justify-center items-center h-screen">
     <Spin size="large" />
@@ -167,14 +180,14 @@ export default function AllPlanets() {
     <Select
       placeholder="Filter by planet type"
       defaultValue="Select a year"
-     // onChange={handlePlanetTypeFilter}
+      onChange={handleYearFilter}
       allowClear
       style={{ width: '100%' }} 
     >
       <Option value="">All</Option>
-     {/* {
-      years.map( (item) => <Option value={item.year}>{item.year}</Option>)
-     } */}
+     {
+      years?.map( (item) => <Option value={item.disc_year}>{item.disc_year}</Option>)
+     }
     </Select>
   </div>
 </div>
