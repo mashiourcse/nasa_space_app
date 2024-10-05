@@ -43,4 +43,15 @@ export const profileData = [
         linkedinLink: 'https://www.linkedin.com/in/shehryarhussainkhatri/',
         techStack: ["JavaScript", "React", "Node.js", "Express", "MongoDB"]
     },
+
+    {
+        name: 'John Zhou',
+        profilePic: '/images/john.png',
+        expertise: 'Web Developer',
+        major: 'Computer Science',
+        university: 'University Of California Riverside',
+        github: 'https://github.com/JohnZ9865',
+        linkedinLink: 'https://www.linkedin.com/in/john-zhou-789487281/',
+        techStack: ["JavaScript", "React", "Node.js", "Express", "MongoDB"]
+    },
   ]
