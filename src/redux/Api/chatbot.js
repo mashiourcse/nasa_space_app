@@ -1,11 +1,12 @@
 import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 import { RunnableSequence } from "@langchain/core/runnables";
-import { ChatOpenAI } from "@langchain/openai";
+import { ChatMistralAI } from "@langchain/mistralai";
 import { BufferMemory } from "langchain/memory";
 
-const model = new ChatOpenAI({
-  model: "gpt-4o-mini",
-  openAIApiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY
+const model = new ChatMistralAI({
+  model: "mistral-large-latest",
+  temperature: 0,
+  apiKey: MistralAI
 });
 const prompt = ChatPromptTemplate.fromMessages([
   [

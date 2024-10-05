@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    env: {
-        OpenAI: process.env.OPEN_AI,
-      },
+  env: {
+      MistralAI: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    },
 };
 
 export default nextConfig;

@@ -1,5 +1,6 @@
 "use client";
 
+import Head from 'next/head';
 import {
   useGetDiscYearCountQuery,
   useLazyGetDiscMethodCountQuery,
@@ -53,6 +54,9 @@ export default function Home() {
 
   return (
     <Layout className="w-full">
+      <Head>
+      <title>NASA SPACEAPP</title>
+      </Head>
       <Header className="bg-white p-0">
         {/* <h1 className="text-center">Planet Discovery Dashboard</h1> */}
       </Header>

@@ -2,12 +2,16 @@
 import { useEffect, useState } from "react";
 import store from "@/redux/store/store";
 import "./globals.css";
-import { AnimatedBackground } from 'animated-backgrounds';
-
+import dynamic from "next/dynamic"; // Dynamically import component
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
 import RightSideBar from "@/components/RightSideBar";
+
+// Dynamically import AnimatedBackground to prevent SSR issues
+const AnimatedBackground = dynamic(() => import('animated-backgrounds').then(mod => mod.AnimatedBackground), {
+  ssr: false, // Disable SSR for this component
+});
 
 export default function RootLayout({ children }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,25 +26,26 @@ export default function RootLayout({ children }) {
 
   return (
     <html data-theme="lofi" lang="en">
-        <AnimatedBackground animationName="geometricShapes" />
-
       <body
         className={`flex min-h-screen w-screen flex-auto flex-col justify-between`}
       >
         {isLoading ? (
-          <div></div>
+          <div></div> // Add a loading state here if needed
         ) : (
           <div className="">
             <Provider store={store}>
-            <Toaster expand={true} richColors />
-            <Navbar/>
-            {/* <RightSideBar/> */}
-           <div>{children}</div>
-           </Provider> 
-          </div>
-          )
-         }
+              <Toaster expand={true} richColors />
+              <Navbar />
+              {/* Optional sidebar */}
+              {/* <RightSideBar /> */}
+              
+              {/* Render the animated background after client-side rendering */}
+              <AnimatedBackground animationName="geometricShapes" />
 
+              <div>{children}</div>
+            </Provider>
+          </div>
+        )}
       </body>
     </html>
   );

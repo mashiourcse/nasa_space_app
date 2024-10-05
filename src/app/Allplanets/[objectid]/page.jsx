@@ -76,7 +76,7 @@ export default function PlanetDetails({ params }) {
               </div>
             </Card>
 
-            <Card
+            {/* <Card
               bordered={true}
               className="mb-4 shadow-lg border border-gray-300"
             >
@@ -88,9 +88,9 @@ export default function PlanetDetails({ params }) {
                   {data[0]?.rastr || "Unknown"}
                 </p>
               </div>
-            </Card>
+            </Card> */}
 
-            <Card
+            {/* <Card
               bordered={true}
               className="mb-4 shadow-lg border border-gray-300"
             >
@@ -98,7 +98,7 @@ export default function PlanetDetails({ params }) {
                 <p className="text-center mb-2 text-lg font-bold">Declination (Dec)</p>
                 <p className="text-center text-base">{data[0]?.decstr || "Unknown"}</p>
               </div>
-            </Card>
+            </Card> */}
 
             <Card bordered={true} className="mb-4 shadow-lg border border-gray-300">
               <div className="flex flex-col justify-between h-full">

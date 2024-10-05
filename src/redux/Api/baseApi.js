@@ -5,7 +5,7 @@ const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
    // baseUrl: "https://cors-anywhere.herokuapp.com/https://exoplanetarchive.ipac.caltech.edu/TAP/",  // temporary
-      baseUrl: "http://localhost:4000/",
+      baseUrl: 'https://nasa-space-app-backend.vercel.app/',
    // baseUrl: process.env.NASA_TAP_URL,
     prepareHeaders: (headers) => {
      //https://cors-anywhere.herokuapp.com/

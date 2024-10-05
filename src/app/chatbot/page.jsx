@@ -1,3 +1,4 @@
+"use client";
 import ChatbotComponent from "../../components/ChatBot/chatbotComponent";
 import Link from "next/link";
 import styles from "./page.module.css";

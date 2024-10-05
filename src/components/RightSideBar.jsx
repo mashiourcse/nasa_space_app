@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { Button, Drawer } from 'antd';
 import ChatbotComponent from './ChatBot/chatbotComponent';
