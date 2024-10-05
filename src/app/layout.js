@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
             <Provider store={store}>
             <Toaster expand={true} richColors />
             <Navbar/>
-            <RightSideBar/>
+            {/* <RightSideBar/> */}
            <div>{children}</div>
            </Provider> 
           </div>
