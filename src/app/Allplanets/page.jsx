@@ -54,14 +54,6 @@ export default function AllPlanets() {
       dataIndex: "discoverymethod",
       key: "discoverymethod",
     },
-   
-    //discoverymethod
-    // {
-    //   title: "Orbital Period (days)",
-    //   dataIndex: "pl_orbper",
-    //   key: "pl_orbper",
-    //   render: (name) => name || "Unknown",
-    // },
     {
       title: "Distance From Earth (Light Years)",
       dataIndex: "sy_dist",
@@ -73,12 +65,7 @@ export default function AllPlanets() {
       dataIndex: "disc_year",
       key: "disc_year",
     },
-    // {
-    //   title: "Gravity (g)",
-    //   dataIndex: "st_logg",
-    //   key: "st_logg",
-    //   render: (name) => name || "Unknown",
-    // },
+    
     {
       title: "Action",
       key: "action",

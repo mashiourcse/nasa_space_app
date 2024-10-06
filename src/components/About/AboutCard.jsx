@@ -11,8 +11,8 @@ const AboutCard = ({profileData}) => {
 const {profilePic,name,role,expertise,major,university,github,linkedinLink} = profileData;
 
   return (
-    <div className="max-w-xs mx-auto bg-white shadow-lg rounded-full overflow-hidden border-4 border-gray-200 p-6">
-      <div className="flex flex-col items-center">
+    <div className="w-65 mx-auto bg-white shadow-lg rounded-full overflow-hidden border-4 border-gray-200 p-1">
+      <div className="container flex flex-col items-center">
         <img
           className="w-50 h-50 rounded-full object-cover mb-4 border-4 border-gray-300"
           src={profilePic}
@@ -20,11 +20,11 @@ const {profilePic,name,role,expertise,major,university,github,linkedinLink} = pr
         />
         <h2 className="text-lg font-bold text-center mb-2">{name}</h2>
         <p className="text-md font-bold text-center">{role}</p>
-        <p className="text-gray-700 text-center mb-2">{expertise}</p>
-        <p className=" text-gray-500 text-center mb-2">
+        <p className="text-md text-gray-800 text-center mb-2">{expertise}</p>
+        <p className="text-sm text-gray-800 text-center mb-2">
           {major}
         </p>
-        <p className=" text-gray-500 text-center">
+        <p className="text-sm text-gray-800 text-center font-semibold">
            {university}
         </p>
         <div>
