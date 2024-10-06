@@ -38,7 +38,7 @@ export default function About() {
   return (
     <>
       <div className="container mt-10 mx-auto p-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {profileData?.map((singleData, index) => (
             <div
               key={index}

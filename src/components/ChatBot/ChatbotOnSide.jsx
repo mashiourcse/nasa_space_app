@@ -16,7 +16,7 @@ export default function ChatbotOnSide({ planetData }) {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [sendingMessage, setSendingMessage] = useState(false); //state variable for disbaling the send button
 
- // console.log(planetData);
+ console.log(planetData[0]);
   if (firstMessage) {
     buttonHandler();
     setFirstMessage(null);

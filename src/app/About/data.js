@@ -15,7 +15,7 @@ export const profileData = [
         name: 'Mash Rahman',
         profilePic: '/images/mash.png',
         expertise: 'Web Developer',
-        major: 'Computer Science & Engg',
+        major: 'Computer Science & Engineer',
         university: 'IIUC',
         github: 'https://github.com/mashiourcse',
         linkedinLink: 'https://www.linkedin.com/in/mashiour-rahman-557b6a16b/',
@@ -26,7 +26,7 @@ export const profileData = [
         name: 'Shehryar Hussain',
         profilePic: '/images/shady.png',
         expertise: 'AI/Machine Learning',
-        major: 'Computer Software Engg',
+        major: 'Computer Software Engineer',
         university: 'SZABIST University',
         github: 'https://github.com/ShehryarHussainKhatri',
         linkedinLink: 'https://www.linkedin.com/in/shehryarhussainkhatri/',
@@ -37,7 +37,7 @@ export const profileData = [
         name: 'Bijon Talukder',
         profilePic: '/images/bijon.png',
         expertise: 'DevOps Engineer',
-        major: 'Computer Science & Engg',
+        major: 'Computer Science & Engineer',
         university: 'BGC Trust University',
         github: 'https://github.com/BijonTalukder',
         linkedinLink: 'https://www.linkedin.com/in/bijon-talukder-934879210/',
@@ -45,14 +45,14 @@ export const profileData = [
     },
   
 
-    {
-        name: 'John Zhou',
-        profilePic: '/images/john.png',
-        expertise: 'Web Developer',
-        major: 'Computer Science',
-        university: 'UC Riverside',
-        github: 'https://github.com/JohnZ9865',
-        linkedinLink: 'https://www.linkedin.com/in/john-zhou-789487281/',
+    // {
+    //     name: 'John Zhou',
+    //     profilePic: '/images/john.png',
+    //     expertise: 'Web Developer',
+    //     major: 'Computer Science',
+    //     university: 'UC Riverside',
+    //     github: 'https://github.com/JohnZ9865',
+    //     linkedinLink: 'https://www.linkedin.com/in/john-zhou-789487281/',
 
-    },
+    // },
   ]
