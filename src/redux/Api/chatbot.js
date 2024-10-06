@@ -5,7 +5,7 @@ import { BufferMemory } from "langchain/memory";
 
 const model = new ChatMistralAI({
   model: "mistral-large-latest",
-  temperature: 0,
+  temperature: 0.5,
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY
 });
 const prompt = ChatPromptTemplate.fromMessages([
