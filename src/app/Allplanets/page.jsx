@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import 'antd/dist/reset.css'; 
 import '@/app/globals.css'; 
-
+import planetTypes from "./normalizedPlanetTypeMap.json";
 const { Option } = Select;
 
 export default function AllPlanets() {
@@ -18,14 +18,16 @@ export default function AllPlanets() {
   const [selectedYear, setSelectedYear] = useState("");
   const { data: years} = useGetYearsQuery(undefined);
   
-  console.log(years);
+  console.log(planetTypes);
  // Planet type
- const getPlanetType = (pl_rade, pl_bmasse) => {
-  if (pl_rade > 4 && pl_bmasse > 50) return "Gas Giant";
-  if (pl_rade >= 2 && pl_rade <= 4 && pl_bmasse >= 10 && pl_bmasse <= 50) return "Neptune-like";
-  if (pl_rade < 1.5 && pl_bmasse < 10) return "Terrestrial";
-  if (pl_rade >= 1.5 && pl_rade <= 2.5 && pl_bmasse >= 1 && pl_bmasse <= 10) return "Super-Earth";
-  return "Unknown";
+ const normalizeName = (name) => {
+  return name.replace(/[\s-+]/g, ''); 
+};
+
+const getPlanetType = (pl_name) => {
+  const normalizedPlName = normalizeName(pl_name); 
+  return planetTypes[normalizedPlName] || "Gas Giant"; 
+
 };
 
   const changePlName = (name) => {
@@ -89,7 +91,7 @@ export default function AllPlanets() {
       return year.disc_year==selectedYear;
     })
     ?.filter((planet) => {
-      const planetType = getPlanetType(planet.pl_rade, planet.pl_bmasse);
+      const planetType = getPlanetType(planet.pl_name);
       return planetTypeFilter ? planetType === planetTypeFilter : true;
     });
 
@@ -102,7 +104,7 @@ export default function AllPlanets() {
     sy_dist: planet.sy_dist,
     disc_year: planet.disc_year,
    // st_logg: planet.st_logg,
-    planetType: getPlanetType(planet.pl_rade, planet.pl_bmasse), 
+    planetType: getPlanetType(planet.pl_name), 
   }));
 
   // Handing queries
@@ -123,7 +125,7 @@ export default function AllPlanets() {
     setSelectedYear(value);
   }
 
-  console.log(selectedYear);
+ // console.log(selectedYear);
 
   if (isLoading) return <div className="flex justify-center items-center h-screen">
     <Spin size="large" />
@@ -163,6 +165,7 @@ export default function AllPlanets() {
           <Option value="Terrestrial">Terrestrial</Option>
           <Option value="Super-Earth">Super-Earth</Option>
           <Option value="Unknown">Unknown</Option>
+          {/* <Option value="Check">Check</Option> */}
         </Select>
       </div>
   
