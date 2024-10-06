@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href="/chatbot">Chatbot</Link>
         </Menu.Item> */}
         <Menu.Item key="about">
-          <Link href="/About">About</Link>
+          <Link href="/About">Team</Link>
         </Menu.Item>
         <Menu.Item key="about">
         

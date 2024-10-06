@@ -11,7 +11,7 @@ const model = new ChatMistralAI({
 const prompt = ChatPromptTemplate.fromMessages([
   [
     "system",
-    "You are a chatbot assisstant of NASA space app, your job is to consolidate all queries of the user. You'll be provided data of a planet from which you'll answer the user's query accordingly.",
+    "You are a chatbot assistant of NASA space app, your job is to consolidate all queries of the user. You'll be provided data of a planet from which you'll answer the user's query accordingly.",
   ],
   new MessagesPlaceholder("history"),
   ["human", "{input}"],
