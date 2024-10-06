@@ -8,8 +8,9 @@ import {
   useGetNearestPlanetQuery,
   useGetFarthestPlanetQuery,
 } from "@/redux/Feature/NASA/planet";
-import { Layout, Card, Row, Col } from "antd";
+import { Layout, Card, Row, Col, Button } from "antd";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   LineChart,
   Line,
@@ -27,6 +28,7 @@ import {
 const { Header, Content } = Layout;
 
 export default function Home() {
+  const router = useRouter();
   const { data } = useGetDiscYearCountQuery(undefined);
   const [getDiscMethodCountTrigger, { data: discoveryData, isError }] =
     useLazyGetDiscMethodCountQuery();
@@ -64,22 +66,38 @@ export default function Home() {
         <Row gutter={[16, 16]}>
           <Col xs={24} sm={12} md={12} lg={8}>
             <Card title="Total Planets Discovered" loading={isLoading}>
+              <Button
+              onClick={() => router.push(`/Allplanets`)}
+              >
               <h2>{getPlanetsCount && getPlanetsCount[0]["count(*)"]}</h2>
+              </Button>
+              
             </Card>
           </Col>
           <Col xs={24} sm={12} md={12} lg={8}>
             <Card title="Closest Neighbor" loading={isLoading}>
-              <h2>
+              
+              <Button
+              
+              onClick={() => router.push(`/Allplanets/${getNearestPlanet[0].objectid}`)}
+              >
+                <h2 
+                
+                >
                 {getNearestPlanet &&
                   getNearestPlanet[0].pl_name +
                     " (" +
                     Math.round(getNearestPlanet[0].sy_dist * 3.26156) +
                     " light years away)"}
               </h2>
+              </Button>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={12} lg={8}>
             <Card title="Furthest Neighbor" loading={isLoading}>
+              <Button
+              onClick={() => router.push(`/Allplanets/${getFarthestPlanet[0].objectid}`)}
+              >
               <h2>
                 {getFarthestPlanet &&
                   getFarthestPlanet[0].pl_name +
@@ -88,6 +106,8 @@ export default function Home() {
                         Math.round(getFarthestPlanet[0].sy_dist * 3.26156) +
                         " light years away)"
                       : " (Distance Unknown)")}</h2>
+              </Button>
+              
             </Card>
           </Col>
         </Row>
