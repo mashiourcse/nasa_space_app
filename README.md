@@ -6,3 +6,4 @@ Steps to Install:
 * enjoy!
 * Or go to the website by visition this link: https://nasa-space-app-mu.vercel.app/
 * Backend Code: https://github.com/BijonTalukder/nasa_space_app_backend
+* KNN Classification Code For Planet Types: https://github.com/saraharmstrong314/NASA-Space-Apps
