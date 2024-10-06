@@ -160,7 +160,7 @@ export default function PlanetDetails({ params }) {
     />
   </div>
   <div className="ml-4">
-  <ChatbotOnSide planetData={data}/>
+  <ChatbotOnSide planetData={data[0]}/>
   </div>
 </div>
 

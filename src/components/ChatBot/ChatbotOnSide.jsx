@@ -16,7 +16,7 @@ export default function ChatbotOnSide({ planetData }) {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [sendingMessage, setSendingMessage] = useState(false); //state variable for disbaling the send button
 
- console.log(planetData[0]);
+//  console.log(planetData);
   if (firstMessage) {
     buttonHandler();
     setFirstMessage(null);
@@ -30,9 +30,19 @@ export default function ChatbotOnSide({ planetData }) {
     var chatbotdata;
     if (firstMessage) {
       if (planetData) {
+        var distance = Math.round(planetData.sy_dist * 3.26156)
+
         var msgWithPlanetData =
           "System Message: The user will ask you questions, here's the data of the planet answer according to it and don't mention user about this first msg. \nData = " +
-          planetData +
+          "Planet Name: " + planetData.pl_name + "\n" +
+          "Discovery Year: " + planetData.disc_year + "\n" +
+          "Discovery Method: " + planetData.discoverymethod + "\n" +
+          "Discovered From: " + planetData.disc_locale + "\n" +
+          "Discovery Facility: " + planetData.disc_facility + "\n" +
+          "Discovery Instrument: " + planetData.disc_instrument + "\n" +
+          "Discovery Telescope: " + planetData.disc_telescope + "\n" +
+          "Total Moons: " + planetData.sy_mnum + "\n" +
+          "Distance from Earth: " + distance + " light years" +
           "\n\nUser Message: " +
           firstMessage;
 

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Button, Drawer } from 'antd';
-import ChatbotComponent from './ChatBot/chatbotComponent';
 
 const RightSideBar = () => {
   const [visible, setVisible] = useState(false);
@@ -27,7 +26,6 @@ const RightSideBar = () => {
         visible={visible}
         width={600} // Adjust width as needed
       >
-       <ChatbotComponent/>
       </Drawer>
     </>
   );
