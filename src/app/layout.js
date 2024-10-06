@@ -6,7 +6,6 @@ import dynamic from "next/dynamic"; // Dynamically import component
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
-import RightSideBar from "@/components/RightSideBar";
 
 // Dynamically import AnimatedBackground to prevent SSR issues
 const AnimatedBackground = dynamic(() => import('animated-backgrounds').then(mod => mod.AnimatedBackground), {
@@ -26,6 +25,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html data-theme="lofi" lang="en">
+      <head>
+        <title>Exoplaneing Exoplanets
+        </title>
+      </head>
       <body
         className={`flex min-h-screen w-screen flex-auto flex-col justify-between`}
       >
@@ -47,6 +50,7 @@ export default function RootLayout({ children }) {
           </div>
         )}
       </body>
+      
     </html>
   );
 }

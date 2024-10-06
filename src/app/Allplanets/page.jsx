@@ -74,7 +74,10 @@ const getPlanetType = (pl_name) => {
       render: (record) => (
         <Button
           type="primary"
-          onClick={() => router.push(`/Allplanets/${record.objectid}`)}
+          onClick={() => {
+            router.push(`/Allplanets/${record.objectid}` );
+        
+          }}
         >
           Details
         </Button>

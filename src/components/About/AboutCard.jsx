@@ -18,7 +18,7 @@ const {profilePic,name,role,expertise,major,university,github,linkedinLink} = pr
           src={profilePic}
           alt={name}
         />
-        <h2 className="text-lg font-bold text-center mb-2">{name}</h2>
+        <h2 className="text-lg font-bold text-center mt-2 mb-2">{name}</h2>
         <p className="text-md font-bold text-center">{role}</p>
         <p className="text-md text-gray-800 text-center mb-2">{expertise}</p>
         <p className="text-sm text-gray-800 text-center mb-2">

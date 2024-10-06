@@ -1,6 +1,6 @@
 "use client";
 import { ChatBOT } from "../../redux/Api/chatbot";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { TbMessageChatbot } from "react-icons/tb";
 import { IoSend } from "react-icons/io5";
 import { BsChatRightText } from "react-icons/bs";
@@ -8,6 +8,8 @@ import { IoCloseOutline } from "react-icons/io5";
 import styles from "./ChatBotStyles.css";
 import ChatbotCustomMsg from "./ChatbotCustomMsg";
 import { ThreeDots } from "react-loader-spinner";
+import planetTypes from "./normalizedPlanetTypeMap.json";
+import { RiRobot2Line } from "react-icons/ri";
 
 export default function ChatbotOnSide({ planetData }) {
   const [chatHistory, setChatHistory] = useState([]);
@@ -16,12 +18,26 @@ export default function ChatbotOnSide({ planetData }) {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [sendingMessage, setSendingMessage] = useState(false); //state variable for disbaling the send button
 
-//  console.log(planetData);
+  const [planetType, setPlanetType] = useState(undefined);
+
+  
+  //console.log(planetType);
   if (firstMessage) {
     buttonHandler();
     setFirstMessage(null);
   }
-
+  const normalizeName = (name) => {
+    return name.replace(/[\s-+]/g, ''); 
+  };
+  
+  const getPlanetType = (pl_name) => {
+    const normalizedPlName = normalizeName(pl_name); 
+    return planetTypes[normalizedPlName] || "Gas Giant"; 
+  
+  };
+  useEffect( ()=>{
+    setPlanetType(getPlanetType(planetData.pl_name));
+  },[])
   async function buttonHandler() {
     // Disable the button while sending
     if (sendingMessage) return;
@@ -35,6 +51,7 @@ export default function ChatbotOnSide({ planetData }) {
         var msgWithPlanetData =
           "System Message: The user will ask you questions, here's the data of the planet answer according to it and don't mention user about this first msg. \nData = " +
           "Planet Name: " + planetData.pl_name + "\n" +
+          "Planet Type: " + planetType + "\n" +
           "Discovery Year: " + planetData.disc_year + "\n" +
           "Discovery Method: " + planetData.discoverymethod + "\n" +
           "Discovered From: " + planetData.disc_locale + "\n" +
@@ -167,9 +184,9 @@ export default function ChatbotOnSide({ planetData }) {
       <button className="chatbot-toggler" onClick={toggleChatbot}>
         <span>
           {isChatbotOpen ? (
-            <IoCloseOutline size={25} />
+            <IoCloseOutline size={32} />
           ) : (
-            <BsChatRightText size={25} />
+            <RiRobot2Line size={32} />
           )}
         </span>
       </button>

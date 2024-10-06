@@ -4,11 +4,19 @@ import ChatbotOnSide from "@/components/ChatBot/ChatbotOnSide";
 import { useGetSinglePlanetDataQuery } from "@/redux/Feature/NASA/planet";
 import { Card, Spin } from "antd";
 import "antd/dist/reset.css";
+import { useState, useEffect } from "react";
+
 
 export default function PlanetDetails({ params }) {
   const { objectid } = params;
   const { data, isLoading, error } = useGetSinglePlanetDataQuery(objectid);
+  const [planetType, setPlanetType] = useState("");
+ 
+  useEffect( ()=>{
 
+    setPlanetType(history.state.planetType)
+  },[history])
+ // console.log(myState);
   const changePlName = (name) => {
     let newName = "";
     for (let i = 0; i < name.length; i++) {
@@ -160,7 +168,7 @@ export default function PlanetDetails({ params }) {
     />
   </div>
   <div className="ml-4">
-  <ChatbotOnSide planetData={data[0]}/>
+  {!isLoading && <ChatbotOnSide planetData={data[0]} />}
   </div>
 </div>
 
