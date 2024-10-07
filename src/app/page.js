@@ -102,7 +102,7 @@ export default function Home() {
                       ? " (" +
                         Math.round(getFarthestPlanet[0].sy_dist * 3.26156) +
                         " light years away)"
-                      : " (27723 light years away)")}</h2>
+                      : " (Unknown)")}</h2>
               </Button>
               
             </Card>
