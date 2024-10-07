@@ -157,12 +157,12 @@ const getPlanetType = (pl_name) => {
       <div className="col-span-12 sm:col-span-1 lg:col-span-2">
         <Select
           placeholder="Filter by planet type"
-          defaultValue="Any Planet"
+          defaultValue="Select a planet type"
           onChange={handlePlanetTypeFilter}
           allowClear
           style={{ width: '100%' }}
         >
-          <Option value="">Any Planet</Option>
+          <Option value="">All Planets</Option>
           <Option value="Gas Giant">Gas Giant</Option>
           <Option value="Neptune-like">Neptune-like</Option>
           <Option value="Terrestrial">Terrestrial</Option>
