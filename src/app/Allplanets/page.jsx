@@ -138,7 +138,7 @@ const getPlanetType = (pl_name) => {
   </div>;
 
   return (
-    <div className="p-5">
+    <div className="p-5 m-4 ">
     <h1 className="text-2xl font-bold mb-4">Planets Data</h1>
   
     {/* Responsive grid for search and filters */}
@@ -203,7 +203,7 @@ const getPlanetType = (pl_name) => {
         showSizeChanger: true,
         pageSizeOptions: ['10', '20', '50', '100'],
       }}
-      className="shadow-lg rounded-lg overflow-x-auto"
+      className="border-solid border-4 p-4 shadow-lg rounded-lg overflow-x-auto"
     />
   </div>
   
