@@ -136,7 +136,7 @@ export default function PlanetDetails({ params }) {
               </div>
             </Card>
 
-            <Card bordered={true} className="col-span-1 sm:col-span-2 lg:col-span-3 mb-4 shadow-lg border border-gray-300">
+            {/* <Card bordered={true} className="col-span-1 sm:col-span-2 lg:col-span-3 mb-4 shadow-lg border border-gray-300">
               <div className="flex flex-col justify-between h-full">
                 <p className="text-center mb-2 text-lg font-bold">Discovery Reference</p>
                 <p className="text-center text-base">
@@ -150,7 +150,7 @@ export default function PlanetDetails({ params }) {
                   </a>
                 </p>
               </div>
-            </Card>
+            </Card> */}
           </div>
         </Card>
       )}
