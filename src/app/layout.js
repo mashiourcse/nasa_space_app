@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html data-theme="lofi" lang="en">
       <head>
-        <title>Exoplaneing Exoplanets
+        <title>Exoplaning Exoplanets
         </title>
       </head>
       <body
